@@ -1,0 +1,4 @@
+   <% @search_books.each do |book| %>
+   <p><%= link_to(book.title,"/books/#{book.id}") %></p>
+   <p><%= book.author %></p>
+   <% end %>

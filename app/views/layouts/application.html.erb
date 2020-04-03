@@ -9,6 +9,28 @@
   </head>
 
   <body>
+    <%=link_to("PajaPoss BookShelf","/")%>
+    <%= search_form_for @search, url: books_index_path do |f| %>
+        <%= f.text_field :title_cont, :placeholder => "検索", :size => "13px", :class => "form-control" %>
+        <%= f.submit '検索', :class => "btn btn-default" %>
+    <% end %>
+    <% if @current_user %>
+      <%=link_to("本を登録する","/books/new")%>
+      <%=link_to("マイページ","/users/#{@current_user.id}")%>
+      <%=link_to("ログアウト","/logout",{method:"post"})%>
+    <% else %>
+    <li>
+     <%=link_to("新規登録","/signup")%>
+    </li>
+    <li>
+     <%=link_to("ログイン","/login")%>
+    </li>
+    <% end %>
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
