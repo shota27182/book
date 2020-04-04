@@ -1,14 +1,24 @@
-<h2><%= @user.name %></h2>
-<p><%= @user.email %></p>
-<%=link_to("編集","/users/#{@user.id}/edit")%>
-
+<div class="book-detail">
+  <div class="row">
+    <div class="col-md-6">
+     <%=image_tag("person.png",:size => "50x50",:style=>"margin:40px 10px; ,display:inline; ")%>
+   </div>
+   <div class="col-md-6">
+    <h4><%= @user.name %></h4>
+     <p><%= @user.email %></p>
+     <%=link_to("編集","/users/#{@user.id}/edit")%>
+   </div>
+  </div>
   <% @user.books.each do |book| %>
-      <div class="posts-index-item">
-        <div class="post-right">
-          <div class="post-user-name">
-            <%= link_to(book.title, "/books/#{book.id}") %>
-          </div>
-          <%=book.author%>
-        </div>
-      </div>
-    <% end %>
+    <div class="row">
+     <div class="col-md-6">
+      <%=image_tag("book.png",:size => "50x70",:style=>"margin:40px 10px; ,display:inline; ")%>
+     </div>
+     <div class="col-md-6">
+      <%= link_to(book.title, "/books/#{book.id}") %>
+      <%=book.author%>
+    </div>
+   </div>
+ <% end %>
+
+</div>
