@@ -26,7 +26,8 @@ class BooksController < ApplicationController
     @place=params[:place].to_i
     @book = Book.new(
       title: params[:title],
-      author: params[:author]
+      author: params[:author],
+      img:params[:img]
     )
     @book.place=@place
     @book.field=@field.id
