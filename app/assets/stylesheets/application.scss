@@ -41,7 +41,6 @@
 
 .search-form{
   display:inline-block;
-  margin-left:200px
 }
 
 input[type="text"]{
@@ -96,4 +95,8 @@ input[type="text"]{
 
 .col-md-6{
   vertical-align: middle;
+}
+.book-show{
+  position:absolute;
+  height:30px
 }

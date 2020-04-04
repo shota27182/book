@@ -10,35 +10,41 @@
 
   <body>
     <div class="header">
-      <div class="logo1">
+      <div class="row">
+        <div class="col-md-3 center-block">
           <%=link_to(image_tag("logo.png",:size => "150x50"),"/",:style=>"margin:40px 10px; ,display:inline-block; height:30px; ")%>
+        </div>
+        <div class="col-md-4 center-block">
           <%= search_form_for @search, url: books_index_path ,html: { class: 'search-form'} do |f| %>
               <%= f.text_field :title_cont, :placeholder => "検索", :size => "13px", :class => "form-control",:style =>"display:inline-block; "%>
               <%= f.submit '検索', :class => "btn btn-default",:style =>"display:inline-block;" %>
           <% end %>
-     <% if @current_user %>
-       <ul class="header-list">
-         <li>
-          <%=link_to("本を登録する","/books/new",:style=>"color:black; font-size:15px; letter-spacing:3px; display:inline;")%>
-         </li>
-         <li>
-          <%=link_to("マイページ","/users/#{@current_user.id}",:style=>"color:black; font-size:15px;letter-spacing:3px; display:inline;")%>
-         </li>
-         <li>
-          <%=link_to("ログアウト",logout_path,method: :post,date:{confirm:"ログアウトしますか？"},:style=>"color:black; font-size:15px; letter-spacing:3px; display:inline;")%>
-        </li>
-       </ul>
-     <% else %>
-       <ul class="header-list">
-        <li>
-          <%=link_to("新規登録","/signup",:style=>"color:black;  font-size:10px; margin:20px; letter-spacing:3px; display:inline-block;")%>
-        </li>
-        <li>
-          <%=link_to("ログイン","/login",:style=>"color:black;  font-size:10px; margin:20px; letter-spacing:3px; display:inline-block;")%>
-        </li>
-       </ul>
+        </div>
+        <div class="col-md-5 center-block">
+          <% if @current_user %>
+            <ul class="header-list">
+              <li>
+               <%=link_to("本を登録する","/books/new",:style=>"color:black; font-size:15px; letter-spacing:3px; display:inline;")%>
+             </li>
+             <li>
+               <%=link_to("マイページ","/users/#{@current_user.id}",:style=>"color:black; font-size:15px;letter-spacing:3px; display:inline;")%>
+             </li>
+             <li>
+               <%=link_to("ログアウト",logout_path,method: :post,date:{confirm:"ログアウトしますか？"},:style=>"color:black; font-size:15px; letter-spacing:3px; display:inline;")%>
+            </li>
+          </ul>
+         <% else %>
+           <ul class="header-list">
+            <li>
+              <%=link_to("新規登録","/signup",:style=>"color:black;  font-size:15px; margin:20px; letter-spacing:3px; display:inline-block;")%>
+            </li>
+            <li>
+              <%=link_to("ログイン","/login",:style=>"color:black;  font-size:15px; margin:20px; letter-spacing:3px; display:inline-block;")%>
+            </li>
+           </ul>
+        <% end %>
+      </div>
     </div>
-     <% end %>
 
   </div>
   <div class="main">

@@ -14,9 +14,11 @@
      <div class="col-md-6">
       <%=image_tag("book.png",:size => "50x70",:style=>"margin:40px 10px; ,display:inline; ")%>
      </div>
-     <div class="col-md-6">
-      <%= link_to(book.title, "/books/#{book.id}") %>
-      <%=book.author%>
+     <div class="col-md-6 center-block">
+       <div class="d-flex align-items-center">
+         <%= link_to(book.title, "/books/#{book.id}",:style=>"text-align:center;") %>
+         <p><%=book.author%></p>
+      </div>
     </div>
    </div>
  <% end %>
